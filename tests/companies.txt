@@ -1,0 +1,50 @@
+Apple
+Microsoft
+Amazon
+Alphabet
+Meta Platforms
+Tesla
+NVIDIA
+JPMorgan Chase
+Visa
+Johnson & Johnson
+Walmart
+Procter & Gamble
+UnitedHealth Group
+Home Depot
+Mastercard
+Bank of America
+Chevron
+Pfizer
+Coca-Cola
+PepsiCo
+Abbott Laboratories
+Costco
+Netflix
+Adobe
+Salesforce
+Broadcom
+Intel
+Cisco
+Oracle
+AT&T
+Verizon
+Walt Disney
+Nike
+McDonald's
+Goldman Sachs
+Morgan Stanley
+Caterpillar
+Boeing
+Honeywell
+3M
+General Electric
+Target
+Starbucks
+SiriusXM
+Spotify
+Uber
+Airbnb
+Palantir
+Snowflake
+CrowdStrike

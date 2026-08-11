@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"primary-fixed":"#e9ddff","outline":"#7a757f","text-muted":"#8C92AC","inverse-on-surface":"#f2f1ed","on-tertiary":"#ffffff","on-secondary-container":"#2e6d5a","secondary-container":"#acedd5","on-primary-fixed":"#20133f","on-primary-container":"#5c4f7e","on-secondary-fixed-variant":"#06513f","primary-container":"#d4c4fb","on-primary-fixed-variant":"#4c3f6d","on-tertiary-fixed":"#2b1612","tertiary":"#745752","on-background":"#1b1c1a","surface-container-high":"#e9e8e4","background":"#faf9f5","tertiary-container":"#eac4bd","on-error-container":"#93000a","surface-container-lowest":"#ffffff","inverse-surface":"#2f312e","surface-container-low":"#f4f4f0","surface-tint":"#645787","surface-container":"#efeeea","inverse-primary":"#cebef5","surface-container-highest":"#e3e2df","secondary":"#296956","surface-bright":"#faf9f5","outline-variant":"#cac4cf","on-secondary-fixed":"#002118","on-error":"#ffffff","on-surface-variant":"#49454e","tertiary-fixed-dim":"#e3beb7","border-subtle":"#E2E5F1","surface-dim":"#dbdad6","secondary-fixed":"#aff0d8","secondary-fixed-dim":"#93d3bc","primary":"#645787","on-tertiary-container":"#6c504b","error":"#ba1a1a","tertiary-fixed":"#ffdad4","error-container":"#ffdad6","on-surface":"#1b1c1a","surface":"#FFFFFF","on-tertiary-fixed-variant":"#5b403b","surface-variant":"#e3e2df","on-primary":"#ffffff","on-secondary":"#ffffff","primary-fixed-dim":"#cebef5","text-primary":"#2D3142"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"grid-gutter":"16px","stack-md":"12px","stack-sm":"8px","stack-lg":"24px","stack-xs":"4px","panel-padding":"16px"},"fontFamily":{"caption":["IBM Plex Mono"],"data-md":["IBM Plex Mono"],"body-md":["Space Grotesk"],"data-lg":["IBM Plex Mono"],"headline-lg":["Space Grotesk"],"headline-md":["Space Grotesk"]},"fontSize":{"caption":["12px",{"lineHeight":"1.2","fontWeight":"400"}],"data-md":["13px",{"lineHeight":"1.4","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"1.5","fontWeight":"400"}],"data-lg":["16px",{"lineHeight":"1.4","fontWeight":"500"}],"headline-lg":["24px",{"lineHeight":"1.2","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["18px",{"lineHeight":"1.3","fontWeight":"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-border-subtle"><div class="h-14 w-full px-grid-gutter flex items-center justify-between gap-stack-lg"><div class="flex items-center gap-stack-lg min-w-max"><span class="font-headline-md text-headline-md tracking-tight text-primary">PASTEL TERMINAL</span></div><nav class="flex items-center gap-stack-lg h-full" data-active-classes="text-primary border-b-2 border-primary"><a aria-current="page" class="h-full flex items-center font-data-md transition-colors text-primary border-b-2 border-primary" data-path="dashboard" href="#">DASHBOARD</a></nav><div class="flex items-center gap-stack-md"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-14 w-full min-h-screen"><div class="flex flex-col w-full px-grid-gutter pb-stack-lg gap-stack-md">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
+<!-- Top Row: AAPL Chart -->
+<div class="col-span-1 bg-surface rounded shadow-md flex flex-col min-h-0 border-t-0 p-panel-padding relative lg:col-span-6">
+<div class="flex justify-between items-end mb-stack-lg relative z-10">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-stack-xs tracking-tight">AAPL</h1>
+<p class="font-caption text-caption text-text-muted uppercase">Apple Inc. - Consumer Electronics</p>
+</div>
+<div class="text-right">
+<h2 class="font-data-lg text-[32px] text-on-surface font-medium leading-none mb-stack-xs">$184.22</h2>
+<div class="flex items-center justify-end gap-stack-xs bg-secondary-container text-on-secondary-container px-2 py-1 rounded text-data-md font-data-md w-fit ml-auto">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+<span class="">+4.2%</span>
+</div>
+</div>
+</div>
+<div class="flex-grow w-full relative min-h-[320px] mt-stack-md" id="mainChartContainer" style="min-height: 214px;">
+<!-- Placeholder for chart -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 800 200">
+<path class="text-secondary opacity-70" d="M0,180 L100,150 L200,160 L300,120 L400,140 L500,80 L600,100 L700,40 L800,20" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path class="text-secondary opacity-5" d="M0,180 L100,150 L200,160 L300,120 L400,140 L500,80 L600,100 L700,40 L800,20 L800,200 L0,200 Z" fill="currentColor"></path>
+</svg>
+<div class="absolute inset-0 w-full h-full border-b border-border-subtle border-dashed opacity-50 flex flex-col justify-between pointer-events-none">
+<div class="w-full h-px bg-border-subtle opacity-50"></div>
+<div class="w-full h-px bg-border-subtle opacity-50"></div>
+<div class="w-full h-px bg-border-subtle opacity-50"></div>
+<div class="w-full h-px bg-border-subtle opacity-50"></div>
+</div>
+</div>
+<div class="flex justify-between mt-stack-sm text-caption font-caption text-text-muted">
+<span class="">10/01</span>
+<span class="">10/08</span>
+<span class="">10/15</span>
+<span class="">10/22</span>
+<span class="">10/31</span>
+</div>
+</div>
+<!-- Top Row: Q3 Earnings -->
+<div class="col-span-1 bg-surface rounded shadow-sm p-panel-padding flex flex-col h-full relative overflow-hidden lg:col-span-6">
+<div class="absolute -right-16 -top-16 w-48 h-48 bg-primary/5 rounded-full blur-2xl"></div>
+<div class="flex items-center gap-stack-sm mb-stack-lg border-b border-border-subtle pb-stack-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">analytics</span>
+<h3 class="font-data-md text-data-md text-on-surface uppercase tracking-wide">Q3 Earnings Recap</h3>
+</div>
+<div class="flex flex-col gap-stack-lg flex-grow">
+<div class="group">
+<p class="font-caption text-caption text-text-muted mb-stack-xs uppercase">Earnings Per Share (EPS)</p>
+<div class="flex items-end gap-stack-md">
+<span class="font-data-lg text-[28px] text-on-surface leading-none">$1.24</span>
+<span class="font-data-md text-data-md text-secondary bg-secondary-fixed/30 px-1 rounded">vs $1.18 est</span>
+</div>
+</div>
+<div class="group">
+<p class="font-caption text-caption text-text-muted mb-stack-xs uppercase">Revenue</p>
+<div class="flex items-end gap-stack-md">
+<span class="font-data-lg text-[28px] text-on-surface leading-none">$89.5B</span>
+<span class="font-data-md text-data-md text-secondary bg-secondary-fixed/30 px-1 rounded">vs $88.2B est</span>
+</div>
+</div>
+<div class="group mt-auto pt-stack-md">
+<p class="font-caption text-caption text-text-muted mb-stack-xs uppercase">Gross Margin</p>
+<div class="w-full bg-surface-container-high h-2 rounded overflow-hidden">
+<div class="bg-primary h-full w-[44.3%] relative"></div>
+</div>
+<div class="flex justify-between mt-1">
+<span class="font-data-md text-data-md text-on-surface">44.3%</span>
+<span class="font-caption text-caption text-text-muted">Target: 44.0%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg"><!-- Bottom Row: Growth Drivers (Moved Up) -->
+<div class="col-span-1 lg:col-span-6 bg-surface rounded shadow-md overflow-hidden flex flex-col" style="min-height: 300px;">
+<div class="bg-secondary-fixed/40 px-panel-padding py-panel-padding border-b border-secondary/20 flex items-center justify-between">
+<h3 class="font-data-md text-data-md text-on-secondary-container uppercase tracking-wide flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-[18px]">trending_up</span> Growth Drivers
+            </h3>
+</div>
+<div class="flex-grow bg-gradient-to-br from-surface to-secondary-fixed/5 p-panel-padding">
+<ul class="flex flex-col gap-stack-md">
+<li class="flex items-start gap-stack-md">
+<span class="font-data-md text-secondary mt-0.5">+</span>
+<div>
+<h4 class="font-data-md text-data-md text-on-surface mb-1">Services Expansion</h4>
+<p class="font-caption text-caption text-text-muted">High-margin services segment continues double-digit growth trajectory, offsetting hardware cycles.</p>
+</div>
+</li>
+<li class="flex items-start gap-stack-md">
+<span class="font-data-md text-secondary mt-0.5">+</span>
+<div>
+<h4 class="font-data-md text-data-md text-on-surface mb-1">Emerging Markets</h4>
+<p class="font-caption text-caption text-text-muted">Strong adoption rates in India and SE Asia driving new active device install base.</p>
+</div>
+</li>
+<li class="flex items-start gap-stack-md">
+<span class="font-data-md text-secondary mt-0.5">+</span>
+<div>
+<h4 class="font-data-md text-data-md text-on-surface mb-1">Silicon Transition</h4>
+<p class="font-caption text-caption text-text-muted">In-house M-series chips improving gross margins and product differentiation.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Bottom Row: Market Challenges (Moved Up) -->
+<div class="col-span-1 lg:col-span-6 bg-surface rounded shadow-md overflow-hidden flex flex-col" style="min-height: 300px;">
+<div class="bg-tertiary-fixed/60 px-panel-padding py-panel-padding border-b border-tertiary/20 flex items-center justify-between">
+<h3 class="font-data-md text-data-md text-on-tertiary-container uppercase tracking-wide flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-[18px]">warning</span> Market Challenges
+            </h3>
+</div>
+<div class="flex-grow bg-gradient-to-br from-surface to-tertiary-fixed/10 p-panel-padding">
+<ul class="flex flex-col gap-stack-md">
+<li class="flex items-start gap-stack-md">
+<span class="font-data-md text-tertiary mt-0.5">-</span>
+<div>
+<h4 class="font-data-md text-data-md text-on-surface mb-1">Macro Headwinds</h4>
+<p class="font-caption text-caption text-text-muted">Inflationary pressure impacting discretionary consumer spending in developed markets.</p>
+</div>
+</li>
+<li class="flex items-start gap-stack-md">
+<span class="font-data-md text-tertiary mt-0.5">-</span>
+<div>
+<h4 class="font-data-md text-data-md text-on-surface mb-1">Regulatory Scrutiny</h4>
+<p class="font-caption text-caption text-text-muted">Ongoing antitrust investigations regarding App Store fee structures in US and EU.</p>
+</div>
+</li>
+<li class="flex items-start gap-stack-md">
+<span class="font-data-md text-tertiary mt-0.5">-</span>
+<div>
+<h4 class="font-data-md text-data-md text-on-surface mb-1">FX Drag</h4>
+<p class="font-caption text-caption text-text-muted">Strong USD continues to create unfavorable foreign exchange impacts on international revenue.</p>
+</div>
+</li>
+</ul>
+</div>
+</div></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg"><div class="col-span-1 lg:col-span-12 bg-surface rounded shadow-md overflow-hidden flex flex-col border border-border-subtle min-h-[500px]">
+<div class="bg-surface-container px-panel-padding py-panel-padding border-b border-border-subtle flex items-center justify-between">
+<div class="flex items-center gap-stack-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">smart_toy</span>
+<h3 class="font-data-md text-data-md text-on-surface uppercase tracking-wide">Terminal AI Assistant</h3>
+</div>
+<div class="flex gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-caption text-caption text-text-muted">System Online</span>
+</div>
+</div>
+<div class="flex-grow flex flex-col gap-stack-md overflow-y-auto bg-surface-container-lowest p-panel-padding">
+<div class="flex flex-col gap-stack-xs max-w-[80%]">
+<span class="font-caption text-[10px] text-text-muted uppercase">AI Assistant • 12:00 PM</span>
+<div class="bg-surface-container-high p-panel-padding rounded border border-border-subtle">
+<p class="font-body-md text-body-md text-on-surface">Welcome to the Pastel Terminal. I can help you analyze AAPL's recent performance, sector trends, or macro impacts. What would you like to explore today?</p>
+</div>
+</div>
+<div class="flex flex-col gap-stack-xs max-w-[80%] ml-auto items-end">
+<span class="font-caption text-[10px] text-text-muted uppercase">User • 12:01 PM</span>
+<div class="bg-primary text-on-primary p-panel-padding rounded">
+<p class="font-body-md text-body-md">Summarize the impact of the M3 chip architecture on gross margins.</p>
+</div>
+</div>
+</div>
+<div class="border-t border-border-subtle bg-surface py-panel-padding px-panel-padding">
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low border border-border-subtle rounded px-4 py-3 font-body-md focus:outline-none focus:border-primary transition-colors pr-12" placeholder="Ask a question about AAPL..." type="text">
+<button class="absolute right-2 text-primary hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="mt-stack-md flex gap-stack-md">
+<button class="text-caption font-caption text-text-muted hover:text-primary transition-colors border border-border-subtle px-2 py-1 rounded">Analyze Q3 EPS</button>
+<button class="text-caption font-caption text-text-muted hover:text-primary transition-colors border border-border-subtle px-2 py-1 rounded">Compare to Sector</button>
+<button class="text-caption font-caption text-text-muted hover:text-primary transition-colors border border-border-subtle px-2 py-1 rounded">Risk Assessment</button>
+</div>
+</div>
+</div></div>
+</div></main>
+
+
+</body></html>

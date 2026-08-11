@@ -1,0 +1,22 @@
+# Agent-Built Demos — Python Dependencies
+# Install: pip install -r requirements.txt
+
+# Core SDK for Gemini API / Managed Agents
+google-genai>=2.0
+
+# CLI argument parsing
+click>=8.0
+
+# Rich terminal output formatting
+rich>=13.0
+
+# BigQuery client for dataset verification
+google-cloud-bigquery>=3.0
+
+# HTTP requests for health checks and URL verification
+requests>=2.31
+
+# --- Development dependencies (optional) ---
+# pytest>=8.0
+# pytest-asyncio>=0.23
+# ruff>=0.4

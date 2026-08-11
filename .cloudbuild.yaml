@@ -1,0 +1,26 @@
+# Cloud Build configuration for Agent-Built Demos
+# Phase 3 scaffolding — not used in Phases 1-2.
+#
+# This configuration runs an end-to-end smoke test by invoking
+# launch_demo.py against a test company and verifying the outputs.
+
+steps:
+  # Step 1: Install Python dependencies
+  - name: 'python:3.11-slim'
+    entrypoint: 'pip'
+    args: ['install', '-r', 'requirements.txt', '--user']
+
+  # Step 2: Run unit tests
+  - name: 'python:3.11-slim'
+    entrypoint: 'python'
+    args: ['-m', 'pytest', 'tests/', '-v', '--ignore=tests/smoke_test.py', '--ignore=tests/verify_bq_dataset.py', '--ignore=tests/verify_ca_agent.py']
+
+  # Step 3: Verify prompt files exist and are well-formed
+  - name: 'python:3.11-slim'
+    entrypoint: 'python'
+    args: ['-m', 'pytest', 'tests/test_prompts.py', '-v']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+timeout: '600s'
