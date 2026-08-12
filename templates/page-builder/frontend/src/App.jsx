@@ -54,7 +54,7 @@ export default function App() {
 
   return (
     <>
-      <Header />
+      <Header companyName={companyData.companyName} />
       <main className="main-content">
         <div className="main-content-inner">
           {/* Row 1: Ticker Chart + Earnings Recap (6+6) */}
@@ -94,7 +94,7 @@ export default function App() {
           </div>
 
           {/* Row 3: Conversational Analytics (12 cols) */}
-          <div className="dashboard-grid">
+          <div id="conversational-analytics" className="dashboard-grid">
             <div className="col-12">
               <ConversationalAnalytics
                 backendUrl={companyData.backendUrl}

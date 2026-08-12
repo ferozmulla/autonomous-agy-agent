@@ -13,9 +13,14 @@ from __future__ import annotations
 
 import os
 import sys
+import warnings
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
+
+# Suppress noisy ADC warning about end-user credentials lacking a quota project.
+# This warning is informational and doesn't affect functionality.
+warnings.filterwarnings("ignore", message="Your application has authenticated using end user credentials")
 
 # Ensure the project root is on sys.path so `src` is importable
 # regardless of how the script is invoked (direct, -m, or installed).

@@ -69,7 +69,7 @@ export default function ConversationalAnalytics({
                 return [
                   {
                     role: 'ai',
-                    text: `Welcome to the Pastel Terminal. I can help you analyze ${companyName}'s data. What would you like to explore today?`,
+                    text: `Welcome to the ${companyName} Pulse Dashboard. I can help you analyze ${companyName}'s data. What would you like to explore today?`,
                     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                   },
                 ];

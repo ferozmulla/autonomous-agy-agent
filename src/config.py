@@ -172,10 +172,8 @@ def get_gcp_access_token() -> str | None:
         )
         target_credentials.refresh(google.auth.transport.requests.Request())
         return target_credentials.token
-    except Exception as exc:
-        import sys
-        print(f"[AUTH WARN] SA impersonation failed: {exc}", file=sys.stderr)
-        # Fall back to direct ADC token
+    except Exception:
+        # SA impersonation not available — silently fall back to direct ADC token
         try:
             import google.auth
             import google.auth.transport.requests

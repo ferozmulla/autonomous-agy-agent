@@ -28,6 +28,11 @@ export default function EarningsRecap({
   const marginNum = parseFloat(grossMargin) || 0;
   const barWidth = `${Math.min(marginNum, 100)}%`;
 
+  // Strip trailing "est" / "estimate" from estimate props to avoid "est est"
+  const cleanEstimate = (val) => (val || '').replace(/\s*est(imate)?\s*$/i, '').trim();
+  const cleanEps = cleanEstimate(epsEstimate);
+  const cleanRev = cleanEstimate(revenueEstimate);
+
   return (
     <div className="panel earnings-panel">
       {/* Decorative circle */}
@@ -36,7 +41,7 @@ export default function EarningsRecap({
       {/* Section header */}
       <div className="section-header">
         <span className="material-symbols-outlined section-header-icon">analytics</span>
-        <h3 className="section-header-title">{quarter} Earnings Recap</h3>
+        <h3 className="section-header-title">{new Date().getFullYear()} {quarter} Earnings Recap</h3>
       </div>
 
       {/* Earnings data */}
@@ -46,7 +51,7 @@ export default function EarningsRecap({
           <p className="earnings-label">Earnings Per Share (EPS)</p>
           <div className="earnings-row">
             <span className="earnings-value">{eps}</span>
-            <span className="earnings-estimate">vs {epsEstimate} est</span>
+            <span className="earnings-estimate">vs {cleanEps} est</span>
           </div>
         </div>
 
@@ -55,7 +60,7 @@ export default function EarningsRecap({
           <p className="earnings-label">Revenue</p>
           <div className="earnings-row">
             <span className="earnings-value">{revenue}</span>
-            <span className="earnings-estimate">vs {revenueEstimate} est</span>
+            <span className="earnings-estimate">vs {cleanRev} est</span>
           </div>
         </div>
 
