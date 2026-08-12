@@ -285,6 +285,14 @@ def main(company: str, ticker: str | None, project: str, region: str) -> None:
                 "Both agents completed successfully, but no frontend URL was "
                 "extracted. Check the Page Builder output for the Cloud Run URL."
             )
+
+        # Generate demo prompts from the actual dataset schema
+        from src.demo_prompts import generate_demo_prompts
+        from src.output import print_demo_prompts
+
+        demo_prompts = generate_demo_prompts(project, dataset_name, company)
+        if demo_prompts:
+            print_demo_prompts(demo_prompts)
     else:
         failed_agents = [
             name for name, r in results.items() if not r.get("success", False)

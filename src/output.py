@@ -104,3 +104,25 @@ def print_info(message: str) -> None:
 def print_separator() -> None:
     """Print a horizontal separator line."""
     console.print("  " + "─" * 40, style="dim")
+
+
+def print_demo_prompts(prompts: list[str]) -> None:
+    """Print demo prompts in a styled panel for use during the demo script.
+
+    Args:
+        prompts: List of 3 demo prompt strings.
+    """
+    lines = Text()
+    lines.append("\n")
+    for i, prompt in enumerate(prompts, 1):
+        lines.append(f"  {i}. ", style="bold cyan")
+        lines.append(f"{prompt}\n\n")
+    console.print()
+    console.print(Panel(
+        lines,
+        title="[bold]🎤 Demo Prompts for Conversational Analytics[/bold]",
+        border_style="cyan",
+        expand=False,
+        padding=(0, 2),
+    ))
+

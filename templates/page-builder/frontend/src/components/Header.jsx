@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
  * Header — Fixed top navigation bar.
  *
- * Displays "<COMPANY_NAME> PULSE" branding, "DASHBOARD" nav link, and user avatar.
+ * Displays "<COMPANY_NAME> PULSE" branding, nav links with scroll-based
+ * active highlighting, and user avatar.
  *
  * @param {Object} props
  * @param {string} props.companyName - Company name to display (e.g., "DRAFTKINGS INC.").
@@ -15,6 +16,24 @@ export default function Header({ companyName }) {
     .trim()
     .toUpperCase();
 
+  // Track which section is visible: 'dashboard' or 'askpulse'
+  const [activeSection, setActiveSection] = useState('dashboard');
+
+  useEffect(() => {
+    const caEl = document.getElementById('conversational-analytics');
+    if (!caEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setActiveSection(entry.isIntersecting ? 'askpulse' : 'dashboard');
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(caEl);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header className="app-header">
       <div className="app-header-inner">
@@ -25,12 +44,21 @@ export default function Header({ companyName }) {
 
         {/* Center: Navigation */}
         <nav className="app-header-nav" style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-stack-lg)', height: '100%' }}>
-          <a href="#" aria-current="page">DASHBOARD</a>
-          <a href="#conversational-analytics" style={{ cursor: 'pointer' }}
-             onClick={(e) => {
-               e.preventDefault();
-               document.getElementById('conversational-analytics')?.scrollIntoView({ behavior: 'smooth' });
-             }}
+          <a
+            href="#"
+            aria-current={activeSection === 'dashboard' ? 'page' : undefined}
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >DASHBOARD</a>
+          <a
+            href="#conversational-analytics"
+            aria-current={activeSection === 'askpulse' ? 'page' : undefined}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('conversational-analytics')?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >ASK PULSE</a>
         </nav>
 

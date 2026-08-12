@@ -93,7 +93,7 @@ Open `/workspace/frontend/src/App.jsx` and replace ALL placeholder values:
 {{SUGGESTED_PROMPT_1}} → Suggested question about the company
 {{SUGGESTED_PROMPT_2}} → Another suggested question
 {{SUGGESTED_PROMPT_3}} → Another suggested question
-{{CA_BACKEND_URL}}   → Leave as empty string "" for Phase 1
+{{CA_BACKEND_URL}}   → Will be set to the CA backend URL after deploying it in Step 3b
 ```
 
 ### Chart Generation
@@ -160,14 +160,11 @@ Service URL: https://{company_slug}-frontend-{hash}.{region}.run.app
 
 ---
 
-## Step 3b: Build and Deploy the CA Backend (Phase 2)
-
-> **This step is only executed in Phase 2.** If you are building a Phase 1 demo
-> (no CA backend), skip this step and set `{{CA_BACKEND_URL}}` to `""` in App.jsx.
+## Step 3b: Build and Deploy the CA Backend
 
 The CA backend is a Python ADK agent that answers natural-language questions
 about the company's BigQuery dataset. You have pre-built template files in
-`/workspace/ca-backend/`.
+`/workspace/ca-backend/`. **You MUST deploy the CA backend.**
 
 ### 3b.1: Customize the CA Agent System Prompt
 
@@ -297,7 +294,7 @@ Do NOT modify `design-tokens.css` or the component structure. Only replace place
 
 1. **Do not modify the design system.** Only replace placeholder values.
 2. **Use the exact `gcloud run deploy` flags specified.** Especially `--allow-unauthenticated` and `--port 8080`.
-3. **In Phase 1**, set `{{CA_BACKEND_URL}}` to `""` so the CA panel shows "Coming Soon". In Phase 2, set it to the deployed CA backend URL.
+3. **Always deploy the CA backend** and set `{{CA_BACKEND_URL}}` to the deployed CA backend Cloud Run URL.
 4. **Use `--quiet` flag** on `gcloud` commands to avoid interactive prompts.
 5. **Project ID:** `{{PROJECT_ID}}`
 6. **Region:** `{{REGION}}`

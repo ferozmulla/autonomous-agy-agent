@@ -265,6 +265,41 @@ def _extract_sql(output_text: str) -> str | None:
     return max(sql_blocks, key=len).strip()
 
 
+def _hoist_declares(sql: str) -> str:
+    """Move all DECLARE statements to the top of a BigQuery SQL script.
+
+    BigQuery requires all DECLARE statements at the start of a block or
+    script. LLM-generated SQL sometimes places them mid-script (e.g.,
+    inside loops or after CREATE statements). This function extracts them
+    and moves them to the top while preserving order.
+
+    Args:
+        sql: The raw SQL script.
+
+    Returns:
+        The SQL script with all DECLARE statements hoisted to the top.
+    """
+    import re
+
+    lines = sql.split("\n")
+    declares: list[str] = []
+    other: list[str] = []
+
+    for line in lines:
+        stripped = line.strip()
+        # Match lines starting with DECLARE (case-insensitive), but not
+        # inside comments
+        if re.match(r"^DECLARE\s+", stripped, re.IGNORECASE) and not stripped.startswith("--"):
+            declares.append(line)
+        else:
+            other.append(line)
+
+    if not declares:
+        return sql
+
+    return "\n".join(declares) + "\n\n" + "\n".join(other)
+
+
 def _execute_sql_locally(sql: str, project: str) -> dict:
     """Execute a BigQuery SQL script locally using the BigQuery client.
 
@@ -282,6 +317,9 @@ def _execute_sql_locally(sql: str, project: str) -> dict:
         from google.cloud import bigquery
 
         client = bigquery.Client(project=project)
+
+        # Preprocess: hoist any misplaced DECLARE statements to the top
+        sql = _hoist_declares(sql)
 
         # Set job location to match dataset location (us-central1)
         job_config = bigquery.QueryJobConfig()

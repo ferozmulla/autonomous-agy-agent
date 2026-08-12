@@ -101,18 +101,29 @@ def _build_user_message(
     dataset_name = get_dataset_name(company_slug)
     frontend_service = get_frontend_service_name(company_slug)
 
+    ca_service = get_ca_backend_service_name(company_slug)
+    api_key = os.environ.get("GOOGLE_API_KEY", "")
+
     return (
-        f"Build and deploy a Pastel Terminal dashboard for **{company}**{ticker_info}.\n\n"
+        f"Build and deploy a Pulse dashboard for **{company}**{ticker_info}.\n\n"
         f"- **Project ID:** `{project}`\n"
         f"- **Region:** `{region}`\n"
         f"- **Company slug:** `{company_slug}`\n"
         f"- **Dataset name:** `{dataset_name}`\n"
-        f"- **Frontend service name:** `{frontend_service}`\n\n"
+        f"- **Frontend service name:** `{frontend_service}`\n"
+        f"- **CA backend service name:** `{ca_service}`\n"
+        f"- **GOOGLE_API_KEY:** `{api_key}`\n\n"
         f"1. Research the company using web search.\n"
         f"2. Replace all placeholders in App.jsx with real data.\n"
         f"3. Build the React app (npm install && npm run build).\n"
         f"4. Deploy the frontend to Cloud Run.\n"
-        f"5. Report the deployed URL in the required output format."
+        f"5. **Deploy the CA backend** to Cloud Run (Step 3b in your instructions). "
+        f"Use the GOOGLE_API_KEY above as an env var on the Cloud Run service: "
+        f"`--set-env-vars \"GCP_PROJECT={project},BQ_DATASET={dataset_name},"
+        f"GEMINI_MODEL=gemini-3.6-flash,GOOGLE_API_KEY={api_key},"
+        f"GOOGLE_GENAI_USE_VERTEXAI=FALSE\"`\n"
+        f"6. Update App.jsx with the CA backend URL, rebuild and redeploy frontend.\n"
+        f"7. Report the deployed URLs in the required output format."
     )
 
 
